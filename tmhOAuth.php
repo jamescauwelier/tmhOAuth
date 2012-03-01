@@ -7,12 +7,12 @@
  * REST requests. OAuth authentication is sent using the an Authorization Header.
  *
  * @author themattharris
- * @version 0.61
+ * @version 0.62
  *
- * 16 January 2012
+ * 01 March 2012
  */
 class tmhOAuth {
-  const VERSION = 0.61;
+  const VERSION = 0.62;
 
   /**
    * Creates a new tmhOAuth object
@@ -410,7 +410,7 @@ class tmhOAuth {
    */
   function streaming_request($method, $url, $params=array(), $callback='') {
     if ( ! empty($callback) ) {
-      if ( ! function_exists($callback) ) {
+      if ( ! is_callable($callback) ) {
         return false;
       }
       $this->config['streaming_callback'] = $callback;
@@ -516,7 +516,7 @@ class tmhOAuth {
     $this->metrics['tweets']++;
     $this->metrics['bytes'] += strlen($content);
 
-    if ( ! function_exists($this->config['streaming_callback']))
+    if ( ! is_callable($this->config['streaming_callback']))
       return 0;
 
     $metrics = $this->update_metrics();
