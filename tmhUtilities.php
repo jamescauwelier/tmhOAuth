@@ -5,9 +5,9 @@
  * Helpful utility and Twitter formatting functions
  *
  * @author themattharris
- * @version 0.3
+ * @version 0.4
  *
- * 01 March 2012
+ * 12 March 2012
  */
 class tmhUtilities {
   /**
@@ -110,7 +110,7 @@ class tmhUtilities {
    */
   function php_self($dropqs=true) {
     $protocol = 'http';
-    if (strtolower($_SERVER['HTTPS']) == 'on') {
+    if (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') {
       $protocol = 'https';
     } elseif (isset($_SERVER['SERVER_PORT']) && ($_SERVER['SERVER_PORT'] == '443')) {
       $protocol = 'https';
