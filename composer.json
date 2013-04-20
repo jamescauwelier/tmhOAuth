@@ -1,6 +1,6 @@
 {
     "name": "jamescauwelier/tmh-oauth-bundle",
-    "version": "0.x",
+    "version": "0.1",
     "dist": {
         "url": "https://github.com/jamescauwelier/tmhOAuth.git",
         "type": "vcs"
